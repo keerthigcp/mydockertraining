@@ -229,3 +229,7 @@
   229  cd ..
   230  ls
   231  history > Day3_History.txt 
+
+
+
+kubectl run -it busybox-1 --image=ubuntu:16.04 --restart=Never -- /bin/bash
