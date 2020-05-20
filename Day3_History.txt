@@ -233,3 +233,134 @@
 
 
 kubectl run -it busybox-1 --image=ubuntu:16.04 --restart=Never -- /bin/bash
+    1  vim Day3_History.txt 
+    2  ls
+    3  git add . ; git commit -m "K8s-Service"
+    4  git config --global user.email "amitvashist7@outlook.com"
+    5  git config --global user.name "Amit Vashist"
+    6  git add . ; git commit -m "K8s-Service"
+    7  git push 
+    8  ls
+    9  cd 
+   10  ls
+   11  cd k8s-docker-vmware_15April2020/
+   12  ls
+   13  cd K8s/
+   14  ls
+   15  cd ..
+   16  ls
+   17  cd ..
+   18  ls
+   19  cd k8s-docker-vmware_15April2020/
+   20  ls
+   21  cd K8s/
+   22  ls
+   23  cd 
+   24  ls
+   25  cd docker-k8s-openshift-socgen/
+   26  ls
+   27  cd K8s/
+   28  ls
+   29  cp -rf ../../k8s-docker-vmware_15April2020/K8s/07-Labels 06-Labels
+   30  cp -rf ../../k8s-docker-vmware_15April2020/K8s/08-HealthCheck 07-HealthChecks 
+   31  ls
+   32  cd 07-HealthChecks/
+   33  ls
+   34  cat helloworld-healthcheck.yml 
+   35  ls
+   36  cd ..
+   37  ls
+   38  cd 07-HealthChecks/
+   39  ls
+   40  cp -rf helloworld-healthcheck.yml helloworld-healthcheck-exec.yml 
+   41  mv helloworld-healthcheck.yml helloworld-healthcheck-http.yml
+   42  ls
+   43  vim helloworld-healthcheck-exec.yml 
+   44  ls
+   45  cd ..
+   46  ls
+   47  kubectl get nodes 
+   48  kubectl get nodes --shw-labels
+   49  kubectl get nodes --show-labels
+   50  ls
+   51  cd 06-Labels/
+   52  ls
+   53  vim helloworld-nodeselector.yml 
+   54  ls
+   55  cat helloworld-nodeselector_1.yml 
+   56  ls
+   57  kubect create -f helloworld-nodeselector_1.yml 
+   58  kubectl create -f helloworld-nodeselector_1.yml 
+   59  kubectl get pods 
+   60  kubectl delete busybox busybox-1 nodehelloworld                           nodehelloworld-tomcat
+   61  kubectl get pods 
+   62  kubectl delete pod --all
+   63  kubectl get pods 
+   64  kubectl describe pod helloworld-deployment-658d449cdf-6tmzt
+   65  ls
+   66  kubectl create -f helloworld-nodeselector.yml 
+   67  kubectl get pods 
+   68  cat helloworld-nodeselector_1.yml 
+   69  kubect get nodes 
+   70  kubectl get nodes 
+   71  kubectl label nodes gke-k8s-demo-default-pool-d4631e8a-1gf4 hardware=virtual 
+   72  kubectl get pods 
+   73  kubectl get pods -o wide 
+   74  kubectl get nodes 
+   75  kubectl label nodes gke-k8s-demo-default-pool-d4631e8a- hardware=virtual 
+   76  kubectl label nodes gke-k8s-demo-default-pool-d4631e8a-5x2p hardware=virtual 
+   77  kubectl label nodes gke-k8s-demo-default-pool-d4631e8a-v65k hardware=virtual 
+   78  kubectl get pods -o wide 
+   79  kubectl scale --replicas=5 deploy helloworld-deployment 
+   80  kubectl get pods -o wide 
+   81  ls
+   82  cat helloworld-nodeselector.yml 
+   83  kubectl label nodes gke-k8s-demo-default-pool-d4631e8a-5x2p env=prod
+   84  kubectl get pods -o wide 
+   85  kubectl label nodes gke-k8s-demo-default-pool-d4631e8a-5x2p env-
+   86  kubectl get pods -o wide 
+   87  kubectl scale --replicas=5 deploy helloworld-deployment-2
+   88  kubectl get pods -o wide 
+   89  ls
+   90  kubectl delete -f helloworld-nodeselector* 
+   91  kubectl delete -f helloworld-nodeselector_1.yml 
+   92  kubectl delete -f helloworld-nodeselector.yml 
+   93  ls
+   94  kubectl get pods 
+   95  cd ..
+   96  ls
+   97  cd 07-HealthChecks/
+   98  ls
+   99  vim helloworld-healthcheck-exec.yml 
+  100  ls
+  101  cd ..
+  102  ls
+  103  kubectl craete -f 07-HealthChecks/
+  104  kubectl create -f 07-HealthChecks/
+  105  ls
+  106  cd 07-HealthChecks/
+  107  ls
+  108  vim helloworld-healthcheck-http.yml 
+  109  kubectl get pods 
+  110  kubectl describe pod helloworld-deployment-69854649cf-285bc
+  111  ls
+  112  kubectl edit deploy helloworld-deployment
+  113  kubectl get pods 
+  114  ls
+  115  vim helloworld-healthcheck-exec.yml 
+  116  kubectl get pods 
+  117  kubectl describe pod liveness-exec
+  118  kubectl get pods 
+  119  kubectl describe pod helloworld-deployment-dd6f4f694-472zt
+  120  ls
+  121  kubectl edit deploy helloworld-deployment
+  122  kubectl get pods 
+  123  cd ..
+  124  lls
+  125  cd ..
+  126  ls
+  127  git add . ; git commit -m "K8s-Service"; git push 
+  128  ls
+  129  history 
+  130  ls
+  131  history >> Day3_History.txt 
