@@ -1,0 +1,144 @@
+    1  kubectl get pods 
+    2  kubectl r
+    3  kubectl get nodes 
+    4  kubectl get pods 
+    5  kubectl delete pod nodehelloworld   
+    6  kubectl get nodes 
+    7  kubectl drain  worker02
+    8  kubectl get pods 
+    9  kubectl get nodes 
+   10  kubectl drain  worker002
+   11  kubectl get nodes 
+   12  kubectl uncordon worker02    
+   13  kubectl get nodes 
+   14  kubectl delete nodes worker002   
+   15  kubectl get nodes 
+   16  git clone https://github.com/amitvashisttech/k8s-docker-vmware_15April2020.git
+   17  ls
+   18  git clone https://github.com/amitvashisttech/k8s-docker-vmware_15April2020.git
+   19  git clone https://github.com/amitvashisttech/docker-k8s-openshift-socgen.git
+   20  ls
+   21  cd docker-k8s-openshift-socgen/
+   22  ls
+   23  mkdir  K8s/ 
+   24  ls
+   25  cd K8s/
+   26  ls
+   27  cp -rf ../../k8s-docker-vmware_15April2020/K8s/01-Setup . 
+   28  cp -rf ../../k8s-docker-vmware_15April2020/K8s/02-First-App . 
+   29  ls
+   30  cd 01-Setup/
+   31  ls
+   32  vim install-kubernetes.sh 
+   33  cd ..
+   34  ls
+   35  git add . ; git commit -m "K8s-Setup" ; git push 
+   36  ls
+   37  cd 01-Setup/
+   38  ls
+   39  ./install-kubernetes.sh 
+   40  mkdir -p $HOME/.kube
+   41  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   42  chown $(id -u):$(id -g) $HOME/.kube/config
+   43  kubectl get nodes 
+   44  docker ps 
+   45  ls
+   46  kubectl get nodes 
+   47  kubectl get pods -n kube-system
+   48  kubectl delete pods  -n kube-system
+   49  kubectl delete pods calico-node-6fn9j -n kube-system
+   50  kubectl delete pods  -n kube-system
+   51  kubectl get pods -n kube-system
+   52  kubectl get nodes 
+   53  ls
+   54  cat install-kubernetes.sh 
+   55  kubectl get nodes 
+   56  ls
+   57  cd ..
+   58  ls
+   59  cd 02-First-App/
+   60  ls
+   61  cat helloworld.yml 
+   62  kubectl get nodes
+   63  kubectl get pods 
+   64  kubectl get ns 
+   65  kubectl get pods 
+   66  kubectl create -f helloworld.yml
+   67  kubectl get pods 
+   68  vim /root/.kube/config 
+   69  kubectl get pods 
+   70  kubectl desribe pods nodehelloworld   
+   71  kubectl describe pods nodehelloworld   
+   72  ls
+   73  cd ..
+   74  ls
+   75  cd ..
+   76  ls
+   77  history > Day2_History.txt
+   78  cat Day2_History.txt 
+   79  ls
+   80  vim Day2_History.txt 
+   81  ls
+   82  git add . ; git commit -m "Day2_History"; git push 
+   83  kubectl get nodes 
+   84  kubectl get pods 
+   85  kubectl get pods -o wide 
+   86  cd 
+   87  ls
+   88  cat /root/.kube/config 
+   89  ls
+   90  kubectl get nodes 
+   91  kubectl get pods 
+   92  ls
+   93  cd docker-k8s-openshift-socgen/ 
+   94  ls
+   95  cd K8s/
+   96  ls
+   97  cp -rf ../../k8s-docker-vmware_15April2020/K8s/03-Replication-controller . 
+   98  ls
+   99  cd 03-Replication-controller/
+  100  ls
+  101  vim helloworld-repl-controller.yml 
+  102  ls
+  103  kubectl create -f helloworld-repl-controller.yml 
+  104  kubectl get pods 
+  105  kubectl get pods -o wide
+  106  ls
+  107  kubectl get rc 
+  108  ls
+  109  cd ..
+  110  ls
+  111  cd 02-First-App/
+  112  ls
+  113  kubectl create -f helloworld.yml 
+  114  kubectl get pods 
+  115  kubectl delete pod helloworld-controller-qq8d9 helloworld-controller-sz2s8
+  116  kubectl get pods 
+  117  kubectl delete pod nodehelloworld
+  118  kubectl get pods 
+  119  kubectl get rc 
+  120  kubectl describe rc helloworld-controller
+  121  cd ../03-Replication-controller/
+  122  ls
+  123  vim helloworld-repl-controller.yml 
+  124  ls
+  125  cat helloworld-repl-controller.yml 
+  126  kubectl create -f helloworld-repl-controller.yml 
+  127  kubectl apply -f helloworld-repl-controller.yml 
+  128  kubectl get rc 
+  129  kubectl get rc,pod
+  130  ls
+  131  kubectl scale --replicas=7 -f helloworld-repl-controller.yml 
+  132  kubectl get rc,pod
+  133  kubectl scale --replicas=9 rc helloworld-controller
+  134  kubectl get rc,pod
+  135  kubectl edit rc helloworld-controller
+  136  kubectl get rc,pod
+  137  ls
+  138  kubectl delete -f helloworld-repl-controller.yml 
+  139  kubectl get rc,pod
+  140  cd ..
+  141  ls
+  142  cd ..
+  143  ls
+  144  history > Day3_History.txt
