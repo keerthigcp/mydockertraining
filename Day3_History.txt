@@ -657,3 +657,87 @@
   657  cd ..
   658  ls
   659  history > Day3_History.txt 
+  660  ls
+  661  git add . ; git commit -m "09-Wordpress"; git push 
+  662  ls
+  663  cd K8s/
+  664  ls
+  665  kubectl delete -f 09-Wordpress/
+  666  ls
+  667  cd 08-Secrets/
+  668  ls
+  669  vim helloworld-secrets-volumes.yml 
+  670  kubectl create -f helloworld-secrets-volumes.yml 
+  671  kubectl get pods 
+  672  kubectl exec -it helloworld-deployment-697b5f84dd-fxch5 -- sh
+  673  ls
+  674  cd ..
+  675  ls
+  676  cd 09-Wordpress/
+  677  ls
+  678  cat wordpress-secrets.yml 
+  679  kubectl get svc 
+  680  ls
+  681  cd ..
+  682  ls
+  683  cd 08-Secrets/
+  684  ls
+  685  cd ..
+  686  ls
+  687  cp -rf ../../k8s-docker-vmware_15April2020/K8s/11-ConfigMap 10-ConfigMap
+  688  ls
+  689  cd 10-ConfigMap/
+  690  ls
+  691  kubectl get pods 
+  692  kubectl delete deploy helloworld-deployment
+  693  kubectl get pods 
+  694  kubectl get svc 
+  695  ls
+  696  cat reverseproxy.conf 
+  697  ls
+  698  cat nginx.yml 
+  699  ls
+  700  cat nginx.yml 
+  701  ls
+  702  cat nginx-service.yml 
+  703  ls
+  704  kubectl create configmap nginx-config --from-file=reverseproxy.conf --dry-run
+  705  kubectl create configmap nginx-config --from-file=reverseproxy.conf --dry-run > 1.yaml
+  706  ls
+  707  cat 1.yaml 
+  708  ls
+  709  rm 1.yaml 
+  710  ls
+  711  cat reverseproxy.conf 
+  712  ls
+  713  kubectl create configmap nginx-config --from-file=reverseproxy.conf
+  714  kubectl get configmap
+  715  kubectl describe configmap nginx-config
+  716  ls
+  717  cd ..
+  718  ls
+  719  kubectl create -f 10-ConfigMap/
+  720  kubectl  get pods 
+  721  kubectl get svc 
+  722  kubectl edit svc helloworld-nginx-service
+  723  kubectl get svc 
+  724  ls
+  725  kubectl describe configmap nginx-config
+  726  ls
+  727  cd 10-ConfigMap/
+  728  ls
+  729  kubectl get svc 
+  730  ls
+  731  kubectl edit configmap nginx-config
+  732  kubectl get pods 
+  733  kubectl exec -it helloworld-nginx -c nginx -- sh 
+  734  ls
+  735  kubectl get pods 
+  736  kubectl edit configmap nginx-config
+  737  kubectl exec -it helloworld-nginx -c nginx -- bash
+  738  ls
+  739  cd ..
+  740  ls
+  741  cd ..
+  742  ls
+  743  history > Day3_History.txt 
