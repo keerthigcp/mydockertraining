@@ -196,3 +196,63 @@
   198  git add . ; git commit -m "13-Statefullset"; git push 
   199  ls
   200  history > Day4_History.txt 
+ 1009  ls
+ 1010  mv 18-Statefullset-Cass 16-Statefullset-Cass
+ 1011  ls
+ 1012  cd 15-nfs-persistent-volume/
+ 1013  ls
+ 1014  ls -ltr 
+ 1015  cat nfs-pv.yaml 
+ 1016  kubectl get pv 
+ 1017  ls
+ 1018  cat nfs-pvc.yaml 
+ 1019  ls
+ 1020  vim nfs-web-service.yaml 
+ 1021  ls
+ 1022  cat fs-web-rc.yaml 
+ 1023  ls
+ 1024  cat nfs-busybox-rc.yaml 
+ 1025  ls
+ 1026  cd ..
+ 1027  ls
+ 1028  cd 16-Statefullset-Cass/
+ 1029  ls
+ 1030  vim cassandra.yaml 
+ 1031  ls
+ 1032  kubectl get pv, pvc 
+ 1033  kubectl  create -f cassandra.yaml 
+ 1034  ls
+ 1035  kubectl get pods 
+ 1036  watch -n 5 kubectl get pods
+ 1037  kubectl get pv 
+ 1038  kubectl get pvc
+ 1039  kubectl get pods 
+ 1040  ls
+ 1041  kubectl get svc 
+ 1042  ls
+ 1043  kubectl get pods 
+ 1044  kubectl exec -it cassandra-0 -- bash
+ 1045  kubectl delete pod cassandra-1
+ 1046  kubectl get pods 
+ 1047  kubectl get pv 
+ 1048  kubectl get pvc 
+ 1049  kubectl get pods 
+ 1050  kubectl exec -it cassandra-0 -- nodetool status 
+ 1051  ls
+ 1052  kubectl delete -f cassandra.yaml 
+ 1053  ls
+ 1054  kubectl get pvc 
+ 1055  kubectl get pv
+ 1056  ls
+ 1057  cd ..
+ 1058  ls
+ 1059  cd ..
+ 1060  ls
+ 1061  git add . ; git commit -m "16-Statefullset-Cass"; git push 
+ 1062  ls
+ 1063  history 
+ 1064  history 100
+ 1065  history 50
+ 1066  history 60
+ 1067  history 60 | more 
+ 1068  history 60  >> Day4_History.txt 
