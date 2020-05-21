@@ -56,3 +56,77 @@
    58  kubectl run -it busybox-2 --image=ubuntu:16.04 --restart=Never -- /bin/bash
    59  ls
    60  history > Day4_History.txt
+   61  ls
+   62  git add . ; git commit -m "Service-Discovery"; git push 
+   63  ls
+   64  cp -rf ../k8s-docker-vmware_15April2020/K8s/13-Ingress K8s/
+   65  ls
+   66  cd K8s/
+   67  ls
+   68  mv 13-Ingress 12-Ingress
+   69  ls
+   70  kubectl delete -f 11-Service-Discovery/
+   71  ls
+   72  cd 11-Service-Discovery/
+   73  ls
+   74  vim helloworld-db.yml 
+   75  ls
+   76  cat helloworld-db-service.yml 
+   77  ls
+   78  cd ..
+   79  ls
+   80  cd ..
+   81  ls
+   82  cp -rf ../k8s-docker-vmware_15April2020/Docker . 
+   83  ls
+   84  cd Docker/
+   85  ls
+   86  cd DockerFile/
+   87  ls
+   88  cat Dockerfile 
+   89  cat amit.html 
+   90  ls
+   91  cd ..
+   92  ls
+   93  cd DockerCompose/
+   94  ls
+   95  cd ..
+   96  ls
+   97  cd ..
+   98  ls
+   99  cd K8s/
+  100  ls
+  101  cd 12-Ingress/
+  102  ls
+  103  vim nginx-ingress-controller.yml 
+  104  ls
+  105  cat ingress.yml 
+  106  ls
+  107  cat echoservice.yml 
+  108  ls
+  109  cat helloworld-v1.yml 
+  110  cat helloworld-v2.yml 
+  111  ls
+  112  cd ..
+  113  ls
+  114  kubectl create -f 12-Ingress/
+  115  kubectl get pods 
+  116  kubectl get svc 
+  117  kubectl get pods 
+  118  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
+  119  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+  120  kubectl get pods 
+  121  ls
+  122  kubectl  get svc 
+  123  kubectl get rc 
+  124  kubectl  expose ec nginx-ingress-controller --type=LoadBalancer
+  125  kubectl  expose rc nginx-ingress-controller --type=LoadBalancer
+  126  kubectl  get svc 
+  127  curl http://34.69.235.173/
+  128  curl http://34.69.235.173/ -H 'Host: helloworld-v1.example.com'
+  129  curl http://34.69.235.173/ -H 'Host: helloworld-v2.example.com'
+  130  curl http://34.69.235.173/ -H 'Host: helloworld-v1.example.com'
+  131  ls
+  132  cd ..
+  133  ls
+  134  history > Day4_History.txt 
