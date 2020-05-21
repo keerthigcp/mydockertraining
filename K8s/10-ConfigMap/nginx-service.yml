@@ -8,4 +8,4 @@ spec:
     protocol: TCP
   selector:
     app: helloworld-nginx
-  type: NodePort
+  type: LoadBalancer

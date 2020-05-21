@@ -15,17 +15,6 @@ spec:
       labels:
         app: helloworld-statefull
     spec:
-      dnsPolicy: "None"
-      dnsConfig:
-        nameservers:
-          - 10.0.0.10
-        searches:
-          - helloworld-statefull.default.svc.cluster.local
-          - default.svc.cluster.locl
-          - svc.cluster.local
-          - cluster.local
-          - us-west2-c.c.k8s-training-277307.internal
-          - c.k8s-training-277307.internal
       containers:
       - name: k8s-demo
         image: amitvashist7/k8s-tiny-web
