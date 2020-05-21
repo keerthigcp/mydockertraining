@@ -1,254 +1,3 @@
-    3  ls
-    4  cp -rf ../../k8s-docker-vmware_15April2020/K8s/12-Service-Discovery 11-Service-Discovery
-    5  ls
-    6  cd 11-Service-Discovery/
-    7  ls
-    8  ls -ltr 
-    9  cat secrets.yml 
-   10  ls
-   11  cat database.yml 
-   12  ls
-   13  cat database-service.yml 
-   14  ls
-   15  cat helloworld-db.yml 
-   16  ls
-   17  cat helloworld-db-service.yml 
-   18  ls
-   19  cd ..
-   20  ls
-   21  kubectl get pods -n kube-system
-   22  kubectl create -f 11-Service-Discovery/
-   23  kubectl get pods 
-   24  kubectl logs pod helloworld-deployment-7689689cdc-fb8zt
-   25  kubectl logs  helloworld-deployment-7689689cdc-fb8zt
-   26  kubectl get pods 
-   27  kubectl logs  helloworld-deployment-7689689cdc-fb8zt
-   28  kubectl logs  helloworld-deployment-7689689cdc-5p7fm
-   29  kubectl get pods 
-   30  kubectl get svc 
-   31  kubectl logs  helloworld-deployment-7689689cdc-fb8zt
-   32  kubectl get svc 
-   33  kubectl get pods 
-   34  kubectl delete pod helloworld-deployment-7689689cdc-5p7fm helloworld-deployment-7689689cdc-8pzx4 helloworld-deployment-7689689cdc-fb8zt
-   35  ls
-   36  kubectl get pods 
-   37  kubectl logs helloworld-deployment-7689689cdc-dp2xc
-   38  ls
-   39  kubectl get svc 
-   40  kubectl edit svc helloworld-db-service
-   41  kubectl get svc 
-   42  kubectl describe svc database-service
-   43  kubectl describe svc helloworld-db-service
-   44  kubectl get svc 
-   45  curl http://34.69.235.173:3000/
-   46  ls
-   47  kubectl get pods 
-   48  kubectl exec database -it -- mysql -u root -p 
-   49  ls
-   50  cat  11-Service-Discovery/database.yml 
-   51  ls
-   52  cd ..
-   53  ls
-   54  grep -i busybox Day2_History.txt 
-   55  grep -i busybox Day3_History.txt 
-   56  kubectl run -it busybox-1 --image=ubuntu:16.04 --restart=Never -- /bin/bash
-   57  ls
-   58  kubectl run -it busybox-2 --image=ubuntu:16.04 --restart=Never -- /bin/bash
-   59  ls
-   60  history > Day4_History.txt
-   61  ls
-   62  git add . ; git commit -m "Service-Discovery"; git push 
-   63  ls
-   64  cp -rf ../k8s-docker-vmware_15April2020/K8s/13-Ingress K8s/
-   65  ls
-   66  cd K8s/
-   67  ls
-   68  mv 13-Ingress 12-Ingress
-   69  ls
-   70  kubectl delete -f 11-Service-Discovery/
-   71  ls
-   72  cd 11-Service-Discovery/
-   73  ls
-   74  vim helloworld-db.yml 
-   75  ls
-   76  cat helloworld-db-service.yml 
-   77  ls
-   78  cd ..
-   79  ls
-   80  cd ..
-   81  ls
-   82  cp -rf ../k8s-docker-vmware_15April2020/Docker . 
-   83  ls
-   84  cd Docker/
-   85  ls
-   86  cd DockerFile/
-   87  ls
-   88  cat Dockerfile 
-   89  cat amit.html 
-   90  ls
-   91  cd ..
-   92  ls
-   93  cd DockerCompose/
-   94  ls
-   95  cd ..
-   96  ls
-   97  cd ..
-   98  ls
-   99  cd K8s/
-  100  ls
-  101  cd 12-Ingress/
-  102  ls
-  103  vim nginx-ingress-controller.yml 
-  104  ls
-  105  cat ingress.yml 
-  106  ls
-  107  cat echoservice.yml 
-  108  ls
-  109  cat helloworld-v1.yml 
-  110  cat helloworld-v2.yml 
-  111  ls
-  112  cd ..
-  113  ls
-  114  kubectl create -f 12-Ingress/
-  115  kubectl get pods 
-  116  kubectl get svc 
-  117  kubectl get pods 
-  118  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
-  119  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
-  120  kubectl get pods 
-  121  ls
-  122  kubectl  get svc 
-  123  kubectl get rc 
-  124  kubectl  expose ec nginx-ingress-controller --type=LoadBalancer
-  125  kubectl  expose rc nginx-ingress-controller --type=LoadBalancer
-  126  kubectl  get svc 
-  127  curl http://34.69.235.173/
-  128  curl http://34.69.235.173/ -H 'Host: helloworld-v1.example.com'
-  129  curl http://34.69.235.173/ -H 'Host: helloworld-v2.example.com'
-  130  curl http://34.69.235.173/ -H 'Host: helloworld-v1.example.com'
-  131  ls
-  132  cd ..
-  133  ls
-  134  history > Day4_History.txt 
-  135  ls
-  136  git add . ; git commit -m "Ingress"; git push 
-  137  ls
-  138  cd K8s/
-  139  ls
-  140  cp -rf ../../k8s-docker-vmware_15April2020/K8s/16-Statefullset 13-Statefullset
-  141  ls
-  142  cd 13-Statefullset/
-  143  ls
-  144  kubectl get pods 
-  145  ls
-  146  cd ..
-  147  ls
-  148  kubectl delete -f 12-Ingress/
-  149  kubectl get svc 
-  150  kubectl delete svc nginx-ingress-controller
-  151  ls
-  152  cd 13-Statefullset/
-  153  ls
-  154  cat helloworld-stateful.yaml 
-  155  ls
-  156  kubectl craete -f helloworld-stateful.yaml 
-  157  kubectl create -f helloworld-stateful.yaml 
-  158  ls
-  159  kubectl get pods 
-  160  kubectl delete pod busybox-1 busybox-2
-  161  kubectl get pods 
-  162  kubectl get statefulset
-  163  kubectl scale --replicas=10 statefulset helloworld-statefull
-  164  kubectl get pods 
-  165  kubectl scale --replicas=1 statefulset helloworld-statefull
-  166  watch -n .5 kubectl get statefulset
-  167  watch -n .5 kubectl get pods 
-  168  kubectl scale --replicas=10 statefulset helloworld-statefull
-  169  watch -n .5 kubectl get pods 
-  170  ls
-  171  kubectl rollout history statefulset helloworld-statefull
-  172  cat helloworld-stateful.yaml 
-  173  kubectl set image statefulset helloworld-statefull k8s-demo=amitvashist7/k8s-tiny-web:2 --record
-  174  watch -n .5 kubectl get pods 
-  175  kubectl rollout history statefulset helloworld-statefull
-  176  ls
-  177  kubectl get pods 
-  178  kubectl  exec -it helloworld-statefull-0 -- sh 
-  179  history | grep -i busybox 
-  180  grep -i busybox ../../Day4_History.txt 
-  181  grep -i busybox ../../Day3_History.txt 
-  182  kubectl run -it busybox --image=busybox:1.28 --restart=Never -- sh
-  183  ls
-  184  kubectl get pods 
-  185  kubectl  exec -it helloworld-statefull-0 -- sh 
-  186  kubectl  exec -it helloworld-statefull-2 -- sh 
-  187  ls
-  188  kubectl get pods -n kube-sytem
-  189  kubectl get pods -n kube-system
-  190  kubectl  delete pods kube-dns-5995c95f64-5kj44 kube-dns-5995c95f64-jvf6w -n kube-system
-  191  kubectl get pods -n kube-system
-  192  kubectl  exec -it helloworld-statefull-2 -- sh 
-  193  ls
-  194  cd ..
-  195  ls
-  196  cd ..
-  197  ls
-  198  git add . ; git commit -m "13-Statefullset"; git push 
-  199  ls
-  200  history > Day4_History.txt 
- 1009  ls
- 1010  mv 18-Statefullset-Cass 16-Statefullset-Cass
- 1011  ls
- 1012  cd 15-nfs-persistent-volume/
- 1013  ls
- 1014  ls -ltr 
- 1015  cat nfs-pv.yaml 
- 1016  kubectl get pv 
- 1017  ls
- 1018  cat nfs-pvc.yaml 
- 1019  ls
- 1020  vim nfs-web-service.yaml 
- 1021  ls
- 1022  cat fs-web-rc.yaml 
- 1023  ls
- 1024  cat nfs-busybox-rc.yaml 
- 1025  ls
- 1026  cd ..
- 1027  ls
- 1028  cd 16-Statefullset-Cass/
- 1029  ls
- 1030  vim cassandra.yaml 
- 1031  ls
- 1032  kubectl get pv, pvc 
- 1033  kubectl  create -f cassandra.yaml 
- 1034  ls
- 1035  kubectl get pods 
- 1036  watch -n 5 kubectl get pods
- 1037  kubectl get pv 
- 1038  kubectl get pvc
- 1039  kubectl get pods 
- 1040  ls
- 1041  kubectl get svc 
- 1042  ls
- 1043  kubectl get pods 
- 1044  kubectl exec -it cassandra-0 -- bash
- 1045  kubectl delete pod cassandra-1
- 1046  kubectl get pods 
- 1047  kubectl get pv 
- 1048  kubectl get pvc 
- 1049  kubectl get pods 
- 1050  kubectl exec -it cassandra-0 -- nodetool status 
- 1051  ls
- 1052  kubectl delete -f cassandra.yaml 
- 1053  ls
- 1054  kubectl get pvc 
- 1055  kubectl get pv
- 1056  ls
- 1057  cd ..
- 1058  ls
- 1059  cd ..
- 1060  ls
- 1061  git add . ; git commit -m "16-Statefullset-Cass"; git push 
  1062  ls
  1063  history 
  1064  history 100
@@ -256,3 +5,106 @@
  1066  history 60
  1067  history 60 | more 
  1068  history 60  >> Day4_History.txt 
+ 1069  git add . ; git commit -m "16-Statefullset-Cass"; git push 
+ 1070  ls
+ 1071  kubectl delete pvc --all 
+ 1072  kubectl delete pv --all 
+ 1073  ls
+ 1074  cd K8s/
+ 1075  ls
+ 1076  cp -rf ../../k8s-docker-vmware_15April2020/K8s/14-Metrics-server 17-Metrics-server
+ 1077  cp -rf ../../k8s-docker-vmware_15April2020/K8s/15-Autoscaling 18-Autoscaling
+ 1078  ls
+ 1079  cd 17-Metrics-server/
+ 1080  ls
+ 1081  cd ..
+ 1082  ls
+ 1083  kubectl get pods -n kube-system
+ 1084  kubectl top 
+ 1085  kubectl top pod 
+ 1086  kubectl top nodes 
+ 1087  ls
+ 1088  cd 18-Autoscaling/
+ 1089  ls
+ 1090  vim hpa-example.yml 
+ 1091  ls
+ 1092  kubectl create -f hpa-example.yml 
+ 1093  kubectl get svc,deployment,hpa
+ 1094  kubectl get pods 
+ 1095  kubectl get svc 
+ 1096  kubectl edit svc hpa-example
+ 1097  kubectl get svc 
+ 1098  kubectl top pods 
+ 1099  kubectl top nodes 
+ 1100  kubectl top pod
+ 1101  ls
+ 1102  kubectl top pod
+ 1103  kubectl get pods 
+ 1104  kubectl top pod
+ 1105  watch -n .5 kubectl get pods 
+ 1106  watch -n .5 kubectl get pods  -o wide 
+ 1107  sl
+ 1108  ls
+ 1109  cd ..
+ 1110  ls
+ 1111  history 50 > ../Day4_History.txt 
+ 1062  ls
+ 1063  history 
+ 1064  history 100
+ 1065  history 50
+ 1066  history 60
+ 1067  history 60 | more 
+ 1068  history 60  >> Day4_History.txt 
+ 1069  git add . ; git commit -m "16-Statefullset-Cass"; git push 
+ 1070  ls
+ 1071  kubectl delete pvc --all 
+ 1072  kubectl delete pv --all 
+ 1073  ls
+ 1074  cd K8s/
+ 1075  ls
+ 1076  cp -rf ../../k8s-docker-vmware_15April2020/K8s/14-Metrics-server 17-Metrics-server
+ 1077  cp -rf ../../k8s-docker-vmware_15April2020/K8s/15-Autoscaling 18-Autoscaling
+ 1078  ls
+ 1079  cd 17-Metrics-server/
+ 1080  ls
+ 1081  cd ..
+ 1082  ls
+ 1083  kubectl get pods -n kube-system
+ 1084  kubectl top 
+ 1085  kubectl top pod 
+ 1086  kubectl top nodes 
+ 1087  ls
+ 1088  cd 18-Autoscaling/
+ 1089  ls
+ 1090  vim hpa-example.yml 
+ 1091  ls
+ 1092  kubectl create -f hpa-example.yml 
+ 1093  kubectl get svc,deployment,hpa
+ 1094  kubectl get pods 
+ 1095  kubectl get svc 
+ 1096  kubectl edit svc hpa-example
+ 1097  kubectl get svc 
+ 1098  kubectl top pods 
+ 1099  kubectl top nodes 
+ 1100  kubectl top pod
+ 1101  ls
+ 1102  kubectl top pod
+ 1103  kubectl get pods 
+ 1104  kubectl top pod
+ 1105  watch -n .5 kubectl get pods 
+ 1106  watch -n .5 kubectl get pods  -o wide 
+ 1107  sl
+ 1108  ls
+ 1109  cd ..
+ 1110  ls
+ 1111  history 50 > ../Day4_History.txt 
+ 1112  ls
+ 1113  cd .
+ 1114  ls
+ 1115  git add . ; git commit -m "18-Autoscaling"; git push 
+ 1116  ls
+ 1117  history 
+ 1118  cd ..
+ 1119  ls
+ 1120  history 60 
+ 1121  history 60 >> Day4_History.txt 
