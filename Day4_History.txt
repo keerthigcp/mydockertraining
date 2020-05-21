@@ -130,3 +130,69 @@
   132  cd ..
   133  ls
   134  history > Day4_History.txt 
+  135  ls
+  136  git add . ; git commit -m "Ingress"; git push 
+  137  ls
+  138  cd K8s/
+  139  ls
+  140  cp -rf ../../k8s-docker-vmware_15April2020/K8s/16-Statefullset 13-Statefullset
+  141  ls
+  142  cd 13-Statefullset/
+  143  ls
+  144  kubectl get pods 
+  145  ls
+  146  cd ..
+  147  ls
+  148  kubectl delete -f 12-Ingress/
+  149  kubectl get svc 
+  150  kubectl delete svc nginx-ingress-controller
+  151  ls
+  152  cd 13-Statefullset/
+  153  ls
+  154  cat helloworld-stateful.yaml 
+  155  ls
+  156  kubectl craete -f helloworld-stateful.yaml 
+  157  kubectl create -f helloworld-stateful.yaml 
+  158  ls
+  159  kubectl get pods 
+  160  kubectl delete pod busybox-1 busybox-2
+  161  kubectl get pods 
+  162  kubectl get statefulset
+  163  kubectl scale --replicas=10 statefulset helloworld-statefull
+  164  kubectl get pods 
+  165  kubectl scale --replicas=1 statefulset helloworld-statefull
+  166  watch -n .5 kubectl get statefulset
+  167  watch -n .5 kubectl get pods 
+  168  kubectl scale --replicas=10 statefulset helloworld-statefull
+  169  watch -n .5 kubectl get pods 
+  170  ls
+  171  kubectl rollout history statefulset helloworld-statefull
+  172  cat helloworld-stateful.yaml 
+  173  kubectl set image statefulset helloworld-statefull k8s-demo=amitvashist7/k8s-tiny-web:2 --record
+  174  watch -n .5 kubectl get pods 
+  175  kubectl rollout history statefulset helloworld-statefull
+  176  ls
+  177  kubectl get pods 
+  178  kubectl  exec -it helloworld-statefull-0 -- sh 
+  179  history | grep -i busybox 
+  180  grep -i busybox ../../Day4_History.txt 
+  181  grep -i busybox ../../Day3_History.txt 
+  182  kubectl run -it busybox --image=busybox:1.28 --restart=Never -- sh
+  183  ls
+  184  kubectl get pods 
+  185  kubectl  exec -it helloworld-statefull-0 -- sh 
+  186  kubectl  exec -it helloworld-statefull-2 -- sh 
+  187  ls
+  188  kubectl get pods -n kube-sytem
+  189  kubectl get pods -n kube-system
+  190  kubectl  delete pods kube-dns-5995c95f64-5kj44 kube-dns-5995c95f64-jvf6w -n kube-system
+  191  kubectl get pods -n kube-system
+  192  kubectl  exec -it helloworld-statefull-2 -- sh 
+  193  ls
+  194  cd ..
+  195  ls
+  196  cd ..
+  197  ls
+  198  git add . ; git commit -m "13-Statefullset"; git push 
+  199  ls
+  200  history > Day4_History.txt 
