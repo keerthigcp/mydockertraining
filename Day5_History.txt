@@ -118,3 +118,50 @@
   995  cd docker-k8s-openshift-socgen/
   996  ls
   997  history 120 > Day5_History.txt 
+    1  ls
+    2  cat Day5_History.txt 
+    3  ls
+    4  history 120
+    5  kubectl get ns 
+    6  kubectl config view --minify| grep namespaces:
+    7  kubectl config view --minify
+    8  kubectl config set-context --current --namespace=myspace
+    9  kubectl config view --minify| grep namespaces:
+   10  kubectl config view --minify| grep namespaces
+   11  kubectl config view --minify| grep -i namespaces
+   12  kubectl config get-contexts
+   13  kubectl config set-context --current --namespace=default
+   14  kubectl config get-contexts
+   15  history 
+   16  ls
+   17  cd K8s/
+   18  ls
+   19  cd 04-Deployment/
+   20  ls
+   21  kubectl create -f helloworld.yml 
+   22  kubectl get pods 
+   23  kubectl get pods -o wide 
+   24  kubectl get nodes 
+   25  kubectl scale --replicas=10 deploy helloworld-deployment
+   26  kubectl get pods -o wide 
+   27  kubectl get nodes 
+   28  kubectl drain gke-k8s-demo-default-pool-e00f1f35-gd0m
+   29  kubectl drain gke-k8s-demo-default-pool-e00f1f35-gd0m --ignore-daemonsets
+   30  kubectl get nodes 
+   31  kubectl scale --replicas=15 deploy helloworld-deployment
+   32  ls
+   33  kubectl describe pod helloworld-deployment-7857f49c7d-fm9vw
+   34  kubectl scale --replicas=5 deploy helloworld-deployment
+   35  kubectl get nodes 
+   36  kubectl scale --replicas=3 deploy helloworld-deployment
+   37  kubectl scale --replicas=5 deploy helloworld-deployment
+   38  kubectl uncordon gke-k8s-demo-default-pool-e00f1f35-gd0m
+   39  kubectl get nodes 
+   40  kubectl scale --replicas=10 deploy helloworld-deployment
+   41  ls
+   42  history 
+   43  cd ..
+   44  ls
+   45  cd ..
+   46  ls
+   47  history >> Day5_History.txt 
