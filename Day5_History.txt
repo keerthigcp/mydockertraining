@@ -1,0 +1,120 @@
+  878  kubectl create -f resourcequota.yml 
+  879  kubectl get ns 
+  880  kubectl get rs -n myspace
+  881  kubectl get pods  -n myspace
+  882  ls
+  883  vim helloworld-with-quotas.yml 
+  884  ls
+  885  kubectl create -f helloworld-with-quotas.yml 
+  886  kubectl get pods  -n myspace
+  887  kubectl get deployment  -n myspace
+  888  kubectl describe deployment helloworld-deployment  -n myspace
+  889  kubectl get pods  -n myspace
+  890  kubectl describe deployment helloworld-deployment  -n myspace
+  891  kubectl get rs -n myspace
+  892  kubectl describe rs helloworld-deployment-85bf5b749f -n myspace
+  893  ls
+  894  kubectl delete -f helloworld-with-quotas.yml 
+  895  ls
+  896  kubectl get rs -n myspace
+  897  ls
+  898  vim helloworld-no-quotas.yml 
+  899  ls
+  900  kubectl create -f helloworld-no-quotas.yml 
+  901  kubectl get rs -n myspace
+  902  kubectl get pods  -n myspace
+  903  kubectl get rs -n myspace
+  904  kubectl describe rs helloworld-deployment-5bc89f9946 -n myspace
+  905  kubectl delete -f helloworld-no-quotas.yml 
+  906  ls
+  907  vim defaults.yml 
+  908  ls
+  909  kubectl create -f defaults.yml 
+  910  kubectl  get limits -n myspace 
+  911  kubectl  get resourcequota -n myspace 
+  912  kubectl  describe  limits limits    -n myspace 
+  913  ls
+  914  kubectl create -f helloworld-no-quotas.yml 
+  915  kubectl get rs -n myspace
+  916  kubectl get pods  -n myspace
+  917  kubectl config get-contexts
+  918  kubectl config set-context --current --namespace=myspace
+  919  kubectl get pods 
+  920  kubectl get ns 
+  921  ls
+  922  kubectl get rs 
+  923  kubectl get deploy 
+  924  ls
+  925  kubectl get svc 
+  926  ls
+  927  cd docker-k8s-openshift-socgen/
+  928  ls
+  929  cd K8s/
+  930  ls
+  931  cd 19-ResourceQuotas/
+  932  ls
+  933  kubectl get deploy 
+  934  kubectl expose deploy helloworld-deployment --type=NodePort 
+  935  kubectl get svc 
+  936  kubectl run test-app-1 --image=amitvashist7/get-started:part2 --port=80
+  937  kubectl run test-app-2 --image=amitvashist7/get-started:part2 --port=80
+  938  ls
+  939  kubectl get deploy
+  940  kubectl scale --replicas=1 deploy helloworld-deployment
+  941  kubectl get pods 
+  942  kubectl run test-app-2 --image=amitvashist7/get-started:part2 --port=80
+  943  kubectl get deploy
+  944  kubectl run test-app-3 --image=amitvashist7/get-started:part2 --port=80
+  945  kubectl get pods 
+  946  kubectl  get svc 
+  947  kubectl expose pod test-app-1 --type=NodePort
+  948  kubectl expose pod test-app-3 --type=NodePort
+  949  kubectl get svc 
+  950  ls
+  951  cat resourcequota.yml 
+  952  ls
+  953  kubectl get svc 
+  954  kubectl edit svc helloworld-deployment 
+  955  ls
+  956  kubectl get svc 
+  957  kubectl edit svc test-app-1
+  958  kubectl get svc 
+  959  kubectl edit svc test-app-3
+  960  kubectl get svc 
+  961  kubectl delete svc helloworld-deployment test-app-1 test-app-3
+  962  ls
+  963  kubectl get pods 
+  964  kubectl delete pod test-app-1 test-app-3
+  965  kubectl delete deploy helloworld-deployment-5bc89f9946-hwlzh
+  966  kubectl delete deploy helloworld-deployment
+  967  ls
+  968  kubectl config set-context --current --namespace=default
+  969  ls
+  970  kubectl get limits
+  971  ls
+  972  cd ..
+  973  ls
+  974  cd ..
+  975  ls
+  976  history 
+  977  history 100
+  978  history 100 | more
+  979  cd docker-k8s-openshift-socgen/
+  980  ls
+  981  git add . ; git commit -m "ResourceQuota"; git push 
+  982  fc -l 
+  983  fc -l 100
+  984  ls
+  985  cat Day5_History.txt 
+  986  ls
+  987  history 120
+  988  history 
+  989  history ls
+  990  ls
+  991  cd k8s-docker-vmware_15April2020/
+  992  ls
+  993  cd ..
+  994  ls
+  995  cd docker-k8s-openshift-socgen/
+  996  ls
+  997  history 120 > Day5_History.txt 
