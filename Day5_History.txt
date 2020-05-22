@@ -165,3 +165,134 @@
    45  cd ..
    46  ls
    47  history >> Day5_History.txt 
+    1  ls
+    2  cat Day5_History.txt 
+    3  ls
+    4  history 120
+    5  kubectl get ns 
+    6  kubectl config view --minify| grep namespaces:
+    7  kubectl config view --minify
+    8  kubectl config set-context --current --namespace=myspace
+    9  kubectl config view --minify| grep namespaces:
+   10  kubectl config view --minify| grep namespaces
+   11  kubectl config view --minify| grep -i namespaces
+   12  kubectl config get-contexts
+   13  kubectl config set-context --current --namespace=default
+   14  kubectl config get-contexts
+   15  history 
+   16  ls
+   17  cd K8s/
+   18  ls
+   19  cd 04-Deployment/
+   20  ls
+   21  kubectl create -f helloworld.yml 
+   22  kubectl get pods 
+   23  kubectl get pods -o wide 
+   24  kubectl get nodes 
+   25  kubectl scale --replicas=10 deploy helloworld-deployment
+   26  kubectl get pods -o wide 
+   27  kubectl get nodes 
+   28  kubectl drain gke-k8s-demo-default-pool-e00f1f35-gd0m
+   29  kubectl drain gke-k8s-demo-default-pool-e00f1f35-gd0m --ignore-daemonsets
+   30  kubectl get nodes 
+   31  kubectl scale --replicas=15 deploy helloworld-deployment
+   32  ls
+   33  kubectl describe pod helloworld-deployment-7857f49c7d-fm9vw
+   34  kubectl scale --replicas=5 deploy helloworld-deployment
+   35  kubectl get nodes 
+   36  kubectl scale --replicas=3 deploy helloworld-deployment
+   37  kubectl scale --replicas=5 deploy helloworld-deployment
+   38  kubectl uncordon gke-k8s-demo-default-pool-e00f1f35-gd0m
+   39  kubectl get nodes 
+   40  kubectl scale --replicas=10 deploy helloworld-deployment
+   41  ls
+   42  history 
+   43  cd ..
+   44  ls
+   45  cd ..
+   46  ls
+   47  history >> Day5_History.txt 
+   48  git add . ; git commit -m "NodeDrain"; git push 
+   49  ls
+   50  cd ..
+   51  ls
+   52  cd docker-k8s-openshift-socgen/K8s/
+   53  ls
+   54  mkdir 20-Helm
+   55  ls
+   56  cd 20-Helm/
+   57  ls
+   58  vim README.md
+   59  ls
+   60  vim helm-tiller-rbac.yaml
+   61  ls
+   62  cat README.md 
+   63  wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+   64  ls
+   65  tar -xzvf helm-v2.11.0-linux-amd64.tar.gz
+   66  sudo mv linux-amd64/helm /usr/local/bin/helm
+   67  ls
+   68  rm -rf helm-v2.11.0-linux-amd64.tar.gz linux-amd64
+   69  ls
+   70  helm --help
+   71  ls
+   72  vim helm-tiller-rbac.yaml 
+   73  ls
+   74  kubectl create -f helm-tiller-rbac.yaml 
+   75  kubectl get pods -n kube-system
+   76  ls
+   77  cat README.md 
+   78  helm init --service-account tiller
+   79  kubectl get pods -n kube-system
+   80  ls
+   81  helm --help
+   82  helm list 
+   83  helm search redis
+   84  helm install stable/redis
+   85  kubectl get pods 
+   86  kubectl delete deploy helloworld-deployment
+   87  kubectl get pods 
+   88  kubectl run --namespace default cold-orangutan-redis-client --rm --tty -i --restart='Never'     --env REDIS_PASSWORD=$REDIS_PASSWORD    --image docker.io/bitnami/redis:5.0.7-debian-10-r32 -- bash
+   89  helm list 
+   90  helm inspect
+   91  helm inspect cold-orangutan
+   92  ls
+   93  helm inspect radis/stable
+   94  ls
+   95  helm inspect
+   96  helm list 
+   97  helm inspect redis-10.5.7
+   98  helm --help
+   99  helm list 
+  100  helm list cold-orangutan
+  101  helm inspect cold-orangutan
+  102  helm inspect chart cold-orangutan
+  103  helm repo update
+  104  helm list cold-orangutan
+  105  helm inspect  cold-orangutan
+  106  helm inspect redis-10.5.7
+  107  helm status redis-10.5.7
+  108  helm status cold-orangutan
+  109  helm install -n myradis stable/redis
+  110  kubectl get pods 
+  111  helm list 
+  112  helm status myradis         
+  113  ls
+  114  helm delete myradis         
+  115  helm list 
+  116  helm delete cold-orangutan
+  117  ls
+  118  history 
+  119  vim README.md 
+  120  s
+  121  ls
+  122  cat README.md 
+  123  ls
+  124  cd ..
+  125  ls
+  126  cd ..
+  127  ls
+  128  git add . ; git commit -m "20-Helm"; git push 
+  129  ls
+  130  history 
+  131  history >> Day5_History.txt 
