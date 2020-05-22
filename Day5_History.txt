@@ -510,3 +510,103 @@
   212  cd ..
   213  ls
   214  history >> Day5_History.txt 
+ 1027  ls
+ 1028  cd docker-k8s-openshift-socgen/
+ 1029  ls
+ 1030  cd K8s/
+ 1031  ls
+ 1032  kubectl version
+ 1033  ls
+ 1034  cd 20-Helm/
+ 1035  ls
+ 1036  cat README.md 
+ 1037  vi README.md 
+ 1038  ls
+ 1039  cd mydev/
+ 1040  ls
+ 1041  helm repo add bitnami https://charts.bitnami.com/bitnami
+ 1042  helm pull https://charts.bitnami.com/bitnami
+ 1043  helm pull bitnami/wordpress
+ 1044  helm  --help 
+ 1045  helm get bitnami/wordpress
+ 1046  ls
+ 1047  helm create testchart
+ 1048  ls
+ 1049  helm  install --dry-run --debug ./testchart 
+ 1050  ls
+ 1051  cat testchart/values.yaml 
+ 1052  ls
+ 1053  cp -rf testchart/values.yaml . 
+ 1054  ls
+ 1055  echo "Hello World" >> testchart/values.yaml 
+ 1056  ls
+ 1057  helm lint ./mychart
+ 1058  helm lint ./testchart
+ 1059  vim testchart/values.yaml 
+ 1060  helm lint ./testchart
+ 1061  vim testchart/values.yaml 
+ 1062  helm lint ./testchart
+ 1063  ls
+ 1064  cd testchart/
+ 1065  ls
+ 1066  vim requirements.yaml
+ 1067  ls
+ 1068  cd ..
+ 1069  ls
+ 1070  helm  dep update ./testchart/
+ 1071  ls
+ 1072  cd testchart/
+ 1073  ls
+ 1074  cd charts/
+ 1075  ls
+ 1076  cd .
+ 1077  cd ..
+ 1078  ls
+ 1079  vim requirements.yaml 
+ 1080  helm  dep update ./testchart/
+ 1081  ls
+ 1082  cd ..
+ 1083  helm  dep update ./testchart/
+ 1084  helm search bitnami/wordpress
+ 1085  ls
+ 1086  vim testchart/requirements.yaml 
+ 1087  ls
+ 1088  helm  dep update ./testchart/
+ 1089  ls
+ 1090  cd testchart/charts/
+ 1091  ls
+ 1092  cp -rf wordpress-9.3.3.tgz ../../ls
+ 1093  cp -rf wordpress-9.3.3.tgz ../../
+ 1094  ls
+ 1095  cd ../../
+ 1096  ls
+ 1097  tar -zxvf wordpress-9.3.3.tgz 
+ 1098  ls
+ 1099  cd wordpress/
+ 1100  ls
+ 1101  vim values.yaml 
+ 1102  ls
+ 1103  cd ..
+ 1104  ls
+ 1105  helm install -n wordpress-test ./wordpress
+ 1106  kubectl  get svc 
+ 1107  echo Password: $(kubectl get secret --namespace default wordpress-test -o jsonpath="{.data.wordpress-password}" | base64 --decode)
+ 1108  kubectl  get svc 
+ 1109  kubectl get pods 
+ 1110  ls
+ 1111  helm serve
+ 1112  ls
+ 1113  cd ..
+ 1114  ls
+ 1115  cd .
+ 1116  ls
+ 1117  du -sh mydev
+ 1118  ls
+ 1119  cd ..
+ 1120  ls
+ 1121  history 
+ 1122  ls
+ 1123  cd ..
+ 1124  ls
+ 1125  history 100
+ 1126  history 100 >> Day5_History.txt 
