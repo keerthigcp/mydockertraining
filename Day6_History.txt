@@ -1,0 +1,47 @@
+   27  kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin  --user=$(gcloud config get-value core/account)
+   28  ls
+   29  kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml 
+   30  ls
+   31  kubectl get ns 
+   32  kubectl apply -f install/kubernetes/istio-demo.yaml 
+   33  kubectl get ns 
+   34  kubectl get svc,pod -n istio-system
+   35  ls
+   36  cat samples/bookinfo/platform/kube/bookinfo.yaml 
+   37  kubectl apply -f  samples/bookinfo/platform/kube/bookinfo.yaml 
+   38  ls
+   39  kubectl get svc 
+   40  kubectl get pods 
+   41  ls
+   42  cat samples/bookinfo/networking/bookinfo-gateway.yaml 
+   43  kubectl  get svc 
+   44  kubectl apply -f  samples/bookinfo/networking/bookinfo-gateway.yaml 
+   45  kubectl get gateway
+   46  kubectl get virtualservice 
+   47  kubectl get svc,pod -n istio-system
+   48  kubectl get virtualservice 
+   49  kubectl describe virtualservice 
+   50  ls
+   51  kubectl get pods 
+   52  ls
+   53  kubectl delete -f samples/bookinfo/platform/kube/bookinfo.yaml 
+   54  kubectl apply -f <(istioctl samples/bookinfo/platform/kube/bookinfo.yaml)
+   55  ls
+   56  cd bin/
+   57  kubectl apply -f <(istioctl samples/bookinfo/platform/kube/bookinfo.yaml)
+   58  ls
+   59  cd ..
+   60  ls
+   61  kubectl apply -f <(istioctl samples/bookinfo/platform/kube/bookinfo.yaml)
+   62  kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
+   63  kubectl get pods 
+   64  kubectl describe pod details-v1-84f4499c5d-9cxt7
+   65  ls
+   66  kubectl get svc 
+   67  ls
+   68  cd ..
+   69  ls
+   70  cd docker-k8s-openshift-socgen/
+   71  ls
+   72  history 
+   73  history > Day6_History.txt
