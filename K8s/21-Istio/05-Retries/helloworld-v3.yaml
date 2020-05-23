@@ -85,7 +85,7 @@ spec:
         subset: v3 # match v3 only
         port:
           number: 8080
-    timeout: 10s
+    timeout: 3s
     retries:
-     attempts: 2
+     attempts: 1
      perTryTimeout: 2s
